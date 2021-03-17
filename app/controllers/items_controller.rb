@@ -4,10 +4,12 @@ class ItemsController < ApplicationController
   # GET /items or /items.json
   def index
     @items = Item.all
+    render component: 'ItemList', props: { items: @items }, tag: 'span', class: 'item'
   end
 
   # GET /items/1 or /items/1.json
   def show
+    render component: 'ItemShow', props: { item: @item }, tag: 'span', class: 'item'
   end
 
   # GET /items/new
@@ -18,6 +20,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    render component: 'ItemEdit', props: { item: @item }, tag: 'span', class: 'item'
   end
 
   # POST /items or /items.json
