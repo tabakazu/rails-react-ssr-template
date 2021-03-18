@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_15_144102) do
+ActiveRecord::Schema.define(version: 2021_03_18_134719) do
 
   create_table "items", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_database_authentications", id: { type: :bigint, unsigned: true }, charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false, unsigned: true
+    t.string "email", default: "", null: false, comment: "メールアドレス"
+    t.string "encrypted_password", default: "", null: false, comment: "暗号化されたパスワード"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_user_database_authentications_on_email", unique: true
+    t.index ["user_id"], name: "index_user_database_authentications_on_user_id"
+  end
+
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
+    t.string "given_name"
+    t.string "family_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

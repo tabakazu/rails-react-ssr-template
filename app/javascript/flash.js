@@ -28,7 +28,6 @@ export default {
     }
   },
   clear() {
-    innerHTML = ''
     document.querySelector("div#flash").innerHTML = '';
   }
 }
