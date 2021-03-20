@@ -10,10 +10,10 @@ const Home = (props) => {
       { loginUser ? (
         <div>
           Logged In <strong>{loginUser.family_name}</strong><br />
-          <a href={'/user_database_authentications/sign_out'} data-confirm="Are you sure?" rel="nofollow" data-method="delete">Logout</a>
+          <a href={'/logout'} data-confirm="Are you sure?" rel="nofollow" data-method="delete">Logout</a>
         </div>
       ) : (
-        <a href={'/user_database_authentications/sign_in'}>Login</a>
+        <a href={'/login'}>Login</a>
       ) }
     </>
   );

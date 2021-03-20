@@ -7,7 +7,7 @@ const UserSessionNew = () => {
 
   const onSubmit = async (data) => {
     const token = document.querySelector("meta[name=csrf-token]").content;
-    await fetch('/user_database_authentications/sign_in.json', {
+    await fetch('/login.json', {
       method: 'POST',
       credentials: 'same-origin',
       headers: { 'X-CSRF-Token': token, 'Content-Type': 'application/json' },
